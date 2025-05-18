@@ -7,22 +7,15 @@ https://github.com/modelcontextprotocol/servers/tree/main/src/postgres
 ## Prerequisites
   Before beginning, ensure the following are installed and configured:
 
-  Docker Desktop
-  Download and install from the official Docker website:
-  https://docs.docker.com/desktop/
-
-  Make sure Docker Desktop is running in the background.
-
-  Claude Desktop
-  Claude Desktop must be installed and configured to support MCP server connections.
-  https://claude.ai/download
+  1. Docker Desktop" Download and install from the official Docker website: https://docs.docker.com/desktop/. Make sure Docker Desktop is running in the background.
+  2. Claude Desktop: Claude Desktop must be installed and configured to support MCP server connections. website: https://claude.ai/download
 
 ## Setup Instructions
 
 Configure claude_desktop_config
 
 If your configuration is empty or missing the mcpServers block, use the full snippet below.
-
+```
 {
   "mcpServers": {
     "postgres": {
@@ -37,9 +30,9 @@ If your configuration is empty or missing the mcpServers block, use the full sni
     }
   }
 }
-
+```
 If claude_desktop_config already has other MCP server configurations, simply add this postgres block inside the mcpServers section:
-
+```
 "postgres": {
   "command": "docker",
   "args": [
@@ -50,7 +43,7 @@ If claude_desktop_config already has other MCP server configurations, simply add
     "postgresql://<username>:<password>@host.docker.internal:5432/<db_name>"
   ]
 }
-
+```
 ### Example Connection String
 `postgresql://postgres:root@host.docker.internal:5432/RTA`
 
